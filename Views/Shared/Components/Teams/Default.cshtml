@@ -1,0 +1,24 @@
+﻿@{
+
+}
+
+@model IEnumerable<string>
+ 
+// if the selected team is null, output None, otherwise, output selected team above the filters.
+<div>
+     <h2 class="">Currently Viewing:</h2>
+     <h4 class="font-italic font-weight-bold">@(ViewBag.SelectedTeam == "" ? "None" : ViewBag.SelectedTeam)</h4>
+ </div>
+_____________________________
+<br />
+<div class="d-grid">
+    <br /> <a asp-controller="Home" asp-action="Index" asp-route-teamName="" class="btn btn-outline-primary">Return Home</a> <br />
+
+    @foreach (string t in Model)
+    {
+        <a asp-controller="Home" asp-action="Index" asp-route-teamName="@t"
+            class="btn @(ViewBag.SelectedTeam == t ? "btn-primary" : "btn-outline-secondary")">@t</a>
+        <br />
+    }
+
+</div>

@@ -1,0 +1,16 @@
+﻿@{
+
+}
+
+@model Bowler
+
+
+<h2> Are you sure you want to delete @Model.BowlerFirstName @Model.BowlerLastName?</h2>
+
+<form method="post" asp-action="Delete">
+    <button type="submit" class="btn btn-sm btn-outline btn-danger">Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-outline btn-primary">Cancel</a>
+
+    <input type="hidden" asp-for="BowlerID" />
+</form>
+
